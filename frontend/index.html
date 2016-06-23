@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Eco-nnect</title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/PostCtrl.js"></script>
+  </head>
+  <body ng-app="econnect" ng-controller="PostCtrl">
+    <div ng-repeat="post in posts | orderBy: '-upvotes'">
+      {{post.title}} - upvotes: {{post.upvotes}}
+      <span ng-click="incrementUpvotes(post)">^</span>
+    </div>
+    <form ng-submit="addPost()">
+      <input type="text" ng-model="title"></input>
+      <button type="submit">Post</button>
+    </form>
+  </body>
+</html>
