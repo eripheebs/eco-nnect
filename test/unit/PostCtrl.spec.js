@@ -3,7 +3,7 @@ describe('PostCtrl', function() {
 
   var ctrl, scope;
 
-  var postData = {title: 'fake post', upvotes: 0};
+  var postData = {title: 'fake post', link: 'www.fakelink.com', upvotes: 0};
 
   beforeEach(inject(function($controller, $rootScope){
     scope = $rootScope.$new;
@@ -14,6 +14,7 @@ describe('PostCtrl', function() {
 
   it('it adds a new post', function() {
     scope.title = 'fake post'
+    scope.link = 'www.fakelink.com'
     scope.addPost();
     expect(scope.posts).toContain(postData);
   });
