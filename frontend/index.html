@@ -1,30 +1,30 @@
-<html>
+<html ng-app="econnect">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <title>Eco-nnect</title>
+
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/PostCtrl.js"></script>
+    <script src="js/controllers/ResearchCtrl.js"></script>
+
     <link rel="stylesheet" href="css/postStyles.css">
+    <style> .glyphicon-thumbs-up { cursor:pointer } </style>
+     <base href="/">
   </head>
-  <body ng-app="econnect" ng-controller="PostCtrl">
-    <div ng-repeat="post in posts | orderBy:'-upvotes'">
-      <span ng-click="incrementUpvotes(post)">^</span>
-      <a ng-show="post.link" href="{{post.link}}">
-        {{post.title}}
-      </a>
-      <span ng-hide="post.link">
-        {{post.title}}
-      </span>
-      - upvotes: {{post.upvotes}}
+  <body ng-app="econnect">
+    <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+       <a ui-sref="posts">Posts</a>
+       <a ui-sref="research">Research</a>
+       <div ui-view></div>
+      </div>
     </div>
-    <form ng-submit="addPost()">
-      <input type="text" placeholder="Title" ng-model="title"></input>
-      <br>
-      <input type="text" placeholder="Short Description" ng-model="description"></input>
-      <br>
-      <input type="text" placeholder="Link" ng-model="link"></input>
-      <br>
-      <button type="submit">Post</button>
-    </form>
+
   </body>
 </html>

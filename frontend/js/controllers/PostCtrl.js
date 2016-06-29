@@ -1,11 +1,11 @@
 econnect.controller('PostCtrl', ['$scope', function($scope){
 
   $scope.posts = [
-    {title: 'post 1', upvotes: 5},
-    {title: 'post 2', upvotes: 2},
-    {title: 'post 3', upvotes: 15},
-    {title: 'post 4', upvotes: 9},
-    {title: 'post 5', upvotes: 4}
+    {title: 'Solar Panels', description: 'Small research group with 30% efficiency', upvotes: 5},
+    {title: 'Another Post', description: 'Balh blah blah', upvotes: 2},
+    {title: 'Another Post', description: 'Balh blah blah', upvotes: 2},
+    {title: 'Another Post', description: 'Balh blah blah', upvotes: 2},
+    {title: 'Another Post', description: 'Balh blah blah', upvotes: 2},
   ];
 
   $scope.addPost = function(){
@@ -13,10 +13,12 @@ econnect.controller('PostCtrl', ['$scope', function($scope){
     $scope.posts.push({
       title: $scope.title,
       link: $scope.link,
+      description: $scope.description,
       upvotes: 0
     });
     $scope.title = '';
     $scope.link = '';
+    $scope.description ='';
   };
 
   $scope.incrementUpvotes = function(post) {
