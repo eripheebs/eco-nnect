@@ -1,5 +1,9 @@
 ### Eco-nnect
 
+#To do:
+1. Rails backend
+2. refer to issues for breakdown of tasks
+
 ####To run the app locally:
 ```
 $ npm install
