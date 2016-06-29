@@ -7,6 +7,7 @@
 ####To run the app locally:
 ```
 $ npm install
+$ cd frontend
 $ bower install
 $ http-server frontend/index.html
 ```
