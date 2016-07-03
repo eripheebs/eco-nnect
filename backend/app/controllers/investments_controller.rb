@@ -12,6 +12,11 @@ class InvestmentsController < ApplicationController
     render json: Investment.find(params[:id])
   end
 
+  def update
+    investment = Investment.find(params[:id])
+    render json: investment.update(investment_params)
+  end
+
   private
 
   def investment_params

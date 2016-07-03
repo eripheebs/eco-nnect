@@ -48,4 +48,20 @@ describe 'InvestmentsAPI' do
       expect(investment_data['industry']).to eq investment.industry
     end
   end
+
+  describe 'PATCH /investments/:id' do
+    it 'edits an investment' do
+      opts = { 'industry': 'Jollybean Industry',
+      'description': investment.description,
+      'ngo': investment.ngo
+      }
+      patch "/investments/#{investment.id}",
+            set_investment_params(opts),
+            request_headers
+
+      expect(response.status).to eq 200
+
+      expect(Investment.find(investment.id).industry).to eq 'Jollybean Industry'
+    end
+  end
 end
