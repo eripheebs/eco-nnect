@@ -64,4 +64,14 @@ describe 'InvestmentsAPI' do
       expect(Investment.find(investment.id).industry).to eq 'Jollybean Industry'
     end
   end
+
+  describe 'DELETE /investments/:id' do
+    it 'deletes an investment' do
+      delete "/investments/#{investment.id}"
+
+      expect(response.status).to eq 200
+
+      expect(Investment.all).not_to include investment
+    end
+  end
 end

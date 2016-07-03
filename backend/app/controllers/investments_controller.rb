@@ -17,6 +17,11 @@ class InvestmentsController < ApplicationController
     render json: investment.update(investment_params)
   end
 
+  def destroy
+    investment = Investment.find(params[:id])
+    render json: investment.destroy
+  end
+
   private
 
   def investment_params
