@@ -8,6 +8,10 @@ class InvestmentsController < ApplicationController
     render json:investment if investment.save
   end
 
+  def show
+    render json: Investment.find(params[:id])
+  end
+
   private
 
   def investment_params

@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'InvestmentsAPI' do
   let!(:request_headers) { { 'Accept': 'application/json',
                             'Content-Type': 'application/json' } }
+  let!(:investment) {FactoryGirl.create(:investment)}
 
-  describe 'post /investments' do
+  describe 'POST /investments' do
     it 'creates a new investment' do
       new_investment = FactoryGirl.build(:investment)
       opts = { 'industry': new_investment.industry,
@@ -22,17 +23,29 @@ describe 'InvestmentsAPI' do
     end
   end
 
-  describe 'get /investments' do
+  describe 'GET /investments' do
     it 'returns a list of investments' do
-      investment = FactoryGirl.create(:investment)
       get '/investments', {}, { 'Accept': 'application/json' }
 
       expect(response.status).to eq 200
 
       investment_data = JSON.parse(response.body)
+
       expect(investment_data[0]['industry']).to eq investment.industry
       expect(investment_data[0]['description']).to eq investment.description
       expect(investment_data[0]['ngo']).to eq investment.ngo
+    end
+  end
+
+  describe 'GET /investments/:id' do
+    it 'returns an investment' do
+      get "/investments/#{investment.id}", {}, { 'Accept': 'application/json' }
+
+      expect(response.status).to eq 200
+
+      investment_data = JSON.parse(response.body)
+
+      expect(investment_data['industry']).to eq investment.industry
     end
   end
 end
