@@ -1,4 +1,4 @@
-econnect.controller('PostCtrl', ['$scope', function($scope){
+econnect.controller('PostCtrl', ['$scope', '$http', function($scope, $http){
 
   $scope.posts = [
     {title: 'Solar Panels', description: 'Small research group with 30% efficiency', upvotes: 5},
@@ -7,6 +7,18 @@ econnect.controller('PostCtrl', ['$scope', function($scope){
     {title: 'Another Post', description: 'Balh blah blah', upvotes: 2},
     {title: 'Another Post', description: 'Balh blah blah', upvotes: 2},
   ];
+  //
+  // $scope.posts = _getInvestments();
+  //
+  // function _getInvestments(){
+  //   return $http.get('http://localhost:3000/investments')
+  //     .then(_handleResponseFromApi);
+  // };
+  //
+  // function _handleResponseFromApi(response){
+  //   return response.data;
+  // };
+
 
   $scope.addPost = function(){
     if(!$scope.title || $scope.title === '') { return; }

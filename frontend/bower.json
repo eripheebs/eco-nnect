@@ -12,7 +12,10 @@
     "angular-ui-router": "^0.3.1",
     "bootstrap": "~3.0.3",
     "angular-bootstrap": "0.10.0",
-    "Materialize": "materialize#^0.97.6"
+    "Materialize": "materialize#^0.97.6",
+    "angularjs-rails-resource": "^2.2.0",
+    "ng-token-auth": "^0.0.29",
+    "angular-cookie": "^4.1.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.0"

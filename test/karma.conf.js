@@ -8,6 +8,9 @@ module.exports = function(config) {
       "frontend/bower_components/angular/angular.js",
       "frontend/bower_components/angular-mocks/angular-mocks.js",
       "frontend/bower_components/angular-ui-router/release/angular-ui-router.js",
+      "frontend/bower_components/angular-cookie/angular-cookie.js",
+      "frontend/bower_components/ng-token-auth/dist/ng-token-auth.js",
+      "frontend/bower_components/jquery/dist/jquery.js",
       'frontend/js/*.js',
       'frontend/js/**/*.js',
       'test/unit/*.js'
