@@ -5,15 +5,13 @@ describe 'InvestmentsAPI' do
                             'Content-Type': 'application/json' } }
 
   describe 'post /investments' do
-    before do
+
+    it 'creates a new investment' do
       new_investment = FactoryGirl.build(:investment)
       opts = { 'industry': new_investment.industry,
       'description': new_investment.description,
       'ngo': new_investment.ngo
       }
-    end
-
-    it 'creates a new investment' do
       post '/investments',
             set_investment_params(opts),
             request_headers
@@ -24,6 +22,5 @@ describe 'InvestmentsAPI' do
       expect(Investment.last.ngo).to eq new_investment.ngo
     end
   end
-
 
 end
