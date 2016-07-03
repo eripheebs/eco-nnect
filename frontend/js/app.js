@@ -13,6 +13,11 @@ var econnect = angular.module('econnect', ['ui.router'])
       url: '/research',
       templateUrl: "views/research.html",
       controller: 'ResearchCtrl'
+    })
+    .state('investments', {
+      url: '/investments/{id}',
+      templateUrl: 'views/investments.html',
+      controller: 'InvestmentsCtrl'
     });
 
 });
