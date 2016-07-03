@@ -1,4 +1,8 @@
 class InvestmentsController < ApplicationController
+  def index
+    render json: Investment.all
+  end
+
   def create
     investment = Investment.new(investment_params)
     render json:investment if investment.save
