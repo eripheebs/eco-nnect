@@ -5,7 +5,6 @@ describe 'InvestmentsAPI' do
                             'Content-Type': 'application/json' } }
 
   describe 'post /investments' do
-
     it 'creates a new investment' do
       new_investment = FactoryGirl.build(:investment)
       opts = { 'industry': new_investment.industry,
@@ -23,4 +22,17 @@ describe 'InvestmentsAPI' do
     end
   end
 
+  describe 'get /investments' do
+    it 'returns a list of investments' do
+      investment = FactoryGirl.create(:investment)
+      get '/investments', {}, { 'Accept': 'application/json' }
+
+      expect(response.status).to eq 200
+
+      investment_data = JSON.parse(response.body)
+      expect(investment_data[0]['industry']).to eq investment.industry
+      expect(investment_data[0]['description']).to eq investment.description
+      expect(investment_data[0]['ngo']).to eq investment.ngo
+    end
+  end
 end
