@@ -6,7 +6,7 @@ describe('econnect', function() {
   });
 
   it('Clicking changes content of main 2 feeds', function() {
-    browser.get('https://eripheebs.github.io/');
+    browser.get('/');
     $('#research-button').click();
     var template = element(by.css('#main-content'));
     expect(template.getText()).toContain('Research Feed');
