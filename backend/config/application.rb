@@ -28,6 +28,11 @@ module Backend
       end
     end
 
+    config.react.variant      = :production
+    config.react.addons       = true
+
+    config.browserify_rails.commandline_options = "--transform reactify --extension=\".jsx\""
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
