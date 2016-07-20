@@ -1,0 +1,72 @@
+{
+  "name": "econnect",
+  "version": "1.0.0",
+  "description": "#To do: 1. Rails backend 2. refer to issues for breakdown of tasks",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eripheebs/econnect.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eripheebs/econnect/issues"
+  },
+  "homepage": "https://github.com/eripheebs/econnect#readme",
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-jest": "^13.2.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-jest": "^13.2.2",
+    "babel-preset-react": "^6.11.1",
+    "bower": "^1.7.9",
+    "html-webpack-plugin": "^2.22.0",
+    "jasmine-core": "^2.4.1",
+    "jasmine-node": "^1.14.5",
+    "jest-cli": "^13.2.3",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8",
+    "protractor": "^3.2.2",
+    "react-addons-test-utils": "^15.2.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-router": "^2.6.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "jest": {
+    "testDirectoryName": "__test__",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react/",
+      "<rootDir>/node_modules/react-dom/",
+      "<rootDir>/node_modules/react-addons-test-utils/"
+    ],
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "moduleNameMapper": {
+      "^config$": "<rootDir>/configs/app-config.js",
+      "^.+\\.(css|less)$": "<rootDir>/test/styleMock.js",
+      "^.+\\.(gif|ttf|eot|svg)$": "<rootDir>/test/fileMock.js"
+    }
+  }
+}
