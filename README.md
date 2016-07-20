@@ -6,10 +6,8 @@
 
 ####To run the app locally:
 ```
-$ npm install
-$ cd frontend
-$ bower install
-$ http-server frontend/index.html
+$ cd react_frontend
+REACT STUFF HERE
 $ cd ..
 $ cd backend
 $ bin/rake db:create
@@ -19,19 +17,17 @@ $ export AUTH0_CLIENT_SECRET = (your client secret key here)
 ```
 
 ####To run tests:
-Protractor tests:
+Jest tests:
 ```
-$ webdriver-manager update
-$ webdriver-manager start
+$ cd frontend
+$ jest
 ```
-* In a different console tab:
+Rspec tests:
 ```
-$ protractor test/protractor.conf.js
+$ cd backend
+$ rspec
 ```
-Karma tests:
-```
-$ karma start test/karma.conf.js
-```
+
 
 bin/rake db:create RAILS_ENV=test
 bin/rake db:migrate RAILS_ENV=test
