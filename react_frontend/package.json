@@ -4,7 +4,8 @@
   "description": "#To do: 1. Rails backend 2. refer to issues for breakdown of tasks",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
