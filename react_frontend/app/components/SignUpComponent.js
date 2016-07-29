@@ -20,7 +20,7 @@ var SignUpComponent = React.createClass({
       password: '',
       password_confirmation: '',
       name: '',
-      responseFromApi: ''
+      messages: ''
     };
   },
   _handleRegistrationClick: function(e) {
@@ -40,16 +40,14 @@ var SignUpComponent = React.createClass({
     }).then(function(data){
       console.log("hi!");
     }, function(data){
-      console.log($.parseJSON(data.responseText).errors.full_messages);
+      var responseFromApi = '';
       var errorArray = $.parseJSON(data.responseText).errors.full_messages;
       for (var i = 0; i < errorArray.length; i++) {
-        console.log(this.state);
-        var responseFromApi = errorArray[i];
+        responseFromApi = responseFromApi.concat(errorArray[i], ", ");
       };
-    })
-    // .done(function(data){
-    //   location.reload();
-    // }.bind(this));
+      responseFromApi = responseFromApi.slice(0, -2);
+      this.setState({ messages: responseFromApi});
+    }.bind(this))
   },
   render:function(){
     return (
@@ -80,7 +78,7 @@ var SignUpComponent = React.createClass({
           onChange={this._handleInputChange} />
       <input onClick={this._handleRegistrationClick} defaultValue="sign up"/>
       </form>
-      <div id="success-error">{this.state.responseFromApi}</div>
+      <div id="success-error-messages">{this.state.messages}</div>
       </div>
     )
   }
