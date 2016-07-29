@@ -29,5 +29,4 @@ class InvestmentsController < ApplicationController
   def investment_params
     params.require(:investment).permit(:industry, :description, :ngo)
   end
-
 end
