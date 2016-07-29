@@ -31,7 +31,3 @@ $ bin/rake db:migrate RAILS_ENV=test
 $ cd backend
 $ rspec
 ```
-
-
-bin/rake db:create RAILS_ENV=test
-bin/rake db:migrate RAILS_ENV=test
