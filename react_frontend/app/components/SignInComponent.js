@@ -17,7 +17,8 @@ var SignInComponent = React.createClass({
   getInitialState: function() {
     return {
       email: '',
-      password: ''
+      password: '',
+      messages: ''
     };
   },
   _handleSignInClick: function(e) {
@@ -25,18 +26,27 @@ var SignInComponent = React.createClass({
       method: "POST",
       url: this.props.origin + "/api/auth/sign_in",
       data: {
-        user: {
-          email: this.state.email,
-          password: this.state.password
-        }
+
+        email: this.state.email,
+        password: this.state.password
+
       }
     })
-    .done(function(data){
-      location.reload();
-    }.bind(this));
+    .then(function(data){
+      this.setState({ messages: "You have signed in succesfully."});
+    }.bind(this), function(data){
+      var responseFromApi = '';
+      var errorArray = $.parseJSON(data.responseText).errors;
+      for (var i = 0; i < errorArray.length; i++) {
+        responseFromApi = responseFromApi.concat(errorArray[i], ", ");
+      };
+      responseFromApi = responseFromApi.slice(0, -2);
+      this.setState({ messages: responseFromApi});
+    }.bind(this))
   },
   render:function(){
     return (
+      <div>
       <form>
           <input type='email'
             name='email'
@@ -50,6 +60,8 @@ var SignInComponent = React.createClass({
             onChange={this._handleInputChange} />
           <input type='submit' onClick={this._handleSignInClick} defaultValue='login' />
       </form>
+      <div id="success-error-messages">{this.state.messages}</div>
+      </div>
     )
   }
 });

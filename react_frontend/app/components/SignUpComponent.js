@@ -38,8 +38,8 @@ var SignUpComponent = React.createClass({
 
       }
     }).then(function(data){
-      console.log("hi!");
-    }, function(data){
+      this.setState({ messages: "Your account has been created"});
+    }.bind(this), function(data){
       var responseFromApi = '';
       var errorArray = $.parseJSON(data.responseText).errors.full_messages;
       for (var i = 0; i < errorArray.length; i++) {
