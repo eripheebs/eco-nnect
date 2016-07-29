@@ -8,8 +8,8 @@ var NavBarComponent = React.createClass({
       <div>
         <ul>
           <a onClick={() => hashHistory.push('/') }>Home</a>
-          <a onClick={() => hashHistory.push('/research') }>Research</a>
-          <a onClick={() => hashHistory.push('/investment') }>Investment</a>
+          <a onClick={() => hashHistory.push('/researches') }>Research</a>
+          <a onClick={() => hashHistory.push('/investments') }>Investment</a>
         </ul>
       </div>
     )

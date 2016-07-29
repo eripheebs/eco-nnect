@@ -11,9 +11,9 @@ var InvestmentComponent = require('./InvestmentComponent');
 var RouterComponent = React.createClass({
   render: function(){
     return <Router history={hashHistory}>
-        <Route path='/' component={HomeComponent} />
-        <Route path='/research' component={ResearchComponent} />
-        <Route path='/investment' component={InvestmentComponent} />
+        <Route name='home' path='/' component={HomeComponent} />
+        <Route name='researches' path='/researches' component={ResearchComponent} />
+        <Route name='investments' path='/investments' component={InvestmentComponent} />
       </Router>
   }
 });
