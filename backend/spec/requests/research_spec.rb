@@ -5,6 +5,12 @@ describe 'ReseachAPI' do
                             'Content-Type': 'application/json' } }
   let!(:research) {FactoryGirl.create(:research)}
 
+  before(:each) do
+    user = FactoryGirl.build(:user)
+    auth_headers = user.create_new_auth_token
+    request_headers.merge!(auth_headers)
+  end
+
   describe 'POST /research' do
     it 'creates a new research' do
       new_research = FactoryGirl.build(:research)
