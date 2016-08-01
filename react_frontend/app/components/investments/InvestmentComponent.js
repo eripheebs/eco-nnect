@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Reqwest = require('reqwest');
+var hashHistory = require('react-router').hashHistory;
 
 var InvestmentComponent = React.createClass({
   render: function(){
@@ -27,8 +28,11 @@ var InvestmentAPICall = React.createClass({
   },
   render: function () {
     return (
-      <div id="investment-feed">
-        <InvestmentView origin={this.props.origin} readFromAPI={this.readFromAPI} />
+      <div>
+        <InvestmentNew />
+        <div id="investment-feed">
+          <InvestmentView origin={this.props.origin} readFromAPI={this.readFromAPI} />
+        </div>
       </div>
     );
   }
@@ -71,7 +75,7 @@ var InvestmentList = React.createClass({
   }
 });
 
-var Investment = module.exports = React.createClass({
+var Investment = React.createClass({
   render: function() {
     return (
       <li className="investment">
@@ -80,5 +84,16 @@ var Investment = module.exports = React.createClass({
     );
   }
 });
+
+var InvestmentNew = React.createClass({
+  render: function(){
+    return (
+      <div id="new-investment-link">
+        <a onClick={() => hashHistory.push('/investment/new') }>Home</a>
+      </div>
+    )
+  }
+})
+
 
 module.exports = InvestmentComponent;
