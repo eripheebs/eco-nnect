@@ -5,8 +5,7 @@ var ReactPropTypes = React.PropTypes;
 
 var NavBarComponent = React.createClass({
   propTypes: {
-    isLoggedIn: ReactPropTypes.bool,
-    email: ReactPropTypes.string
+    isLoggedIn: ReactPropTypes.bool
   },
   render: function(){
     return this.props.isLoggedIn ? (

@@ -33,7 +33,7 @@ var SignInComponent = React.createClass({
       }
     })
     .then(function(data){
-      this.setState({ messages: "You have signed in succesfully."});
+      this.setState({ messages: "You have signed in succesfully." });
     }.bind(this), function(data){
       var responseFromApi = '';
       var errorArray = $.parseJSON(data.responseText).errors;

@@ -8,18 +8,18 @@ var getUserSession = {
   isLoggedIn : MainComponent.signedIn
 }
 
-var InvestmentComponent = React.createClass({
+var ResearchComponent = React.createClass({
   getInitialState: function(){
     return getUserSession;
   },
   render: function(){
     return (
-      <InvestmentAPICall />
+      <ResearchAPICall />
     )
   }
 });
 
-var InvestmentAPICall = React.createClass({
+var ResearchAPICall = React.createClass({
   getDefaultProps: function() {
     return {origin: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''};
   },
@@ -39,71 +39,70 @@ var InvestmentAPICall = React.createClass({
   render: function () {
     return (
       <div>
-        <InvestmentNew />
-        <div id="investment-feed">
-          <InvestmentView origin={this.props.origin} readFromAPI={this.readFromAPI} />
+        <ResearchNew />
+        <div id="Research-feed">
+          <ResearchView origin={this.props.origin} readFromAPI={this.readFromAPI} />
         </div>
       </div>
     );
   }
 });
 
-var InvestmentView = React.createClass({
+var ResearchView = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
   componentDidMount: function() {
-    this.readInvestmentsFromAPI();
+    this.readResearchsFromAPI();
   },
-  readInvestmentsFromAPI: function() {
-    this.props.readFromAPI(this.props.origin + '/investments', function(investments) {
-      this.setState({data: investments});
+  readResearchsFromAPI: function() {
+    this.props.readFromAPI(this.props.origin + '/researches', function(Researchs) {
+      this.setState({data: Researchs});
     }.bind(this));
   },
   render: function() {
     return (
-      <div className="investment-view">
-        <InvestmentList data={this.state.data} />
+      <div className="Research-view">
+        <ResearchList data={this.state.data} />
       </div>
     );
   }
 });
 
-var InvestmentList = React.createClass({
+var ResearchList = React.createClass({
   render: function() {
-    var investments = this.props.data.map(function(investment) {
+    var Researchs = this.props.data.map(function(Research) {
       return (
-        <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} />
+        <Research key={Research.id} industry={Research.industry} ngo={Research.ngo} />
       );
     });
 
     return (
-      <ul className="investments-list">
-        {investments}
+      <ul className="Researchs-list">
+        {Researchs}
       </ul>
     );
   }
 });
 
-var Investment = React.createClass({
+var Research = React.createClass({
   render: function() {
     return (
-      <li className="investment">
-        <span className="investment-text"> {this.props.ngo}</span>
+      <li className="Research">
+        <span className="Research-text"> {this.props.ngo}</span>
       </li>
     );
   }
 });
 
-var InvestmentNew = React.createClass({
+var ResearchNew = React.createClass({
   render: function(){
     return (
-      <div id="new-investment-link">
-        <a onClick={() => hashHistory.push('/investments/new') }>Add an Investment Opportunity</a>
+      <div id="new-Research-link">
+        <a onClick={() => hashHistory.push('/researches/new') }>Add Research</a>
       </div>
     )
   }
 })
 
-
-module.exports = InvestmentComponent;
+module.exports = ResearchComponent;
