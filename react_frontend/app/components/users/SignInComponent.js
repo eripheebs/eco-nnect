@@ -24,7 +24,8 @@ var SignInComponent = React.createClass({
   _handleSignInClick: function(e) {
     $.ajax({
       method: "POST",
-      url: this.props.origin + "/api/auth/sign_in",
+      // url: this.props.origin + "/api/auth/sign_in",
+      url: "http://localhost:3001/api/auth/sign_in",
       data: {
 
         email: this.state.email,
@@ -47,7 +48,7 @@ var SignInComponent = React.createClass({
   render:function(){
     return (
       <div>
-      <form>
+        <form>
           <input type='email'
             name='email'
             placeholder='email'
@@ -59,8 +60,8 @@ var SignInComponent = React.createClass({
             value={this.state.password}
             onChange={this._handleInputChange} />
           <input type='submit' onClick={this._handleSignInClick} defaultValue='login' />
-      </form>
-      <div id="success-error-messages">{this.state.messages}</div>
+        </form>
+        <div id="success-error-messages">{this.state.messages}</div>
       </div>
     )
   }
