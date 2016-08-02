@@ -26,8 +26,7 @@ var SignUpComponent = React.createClass({
   _handleRegistrationClick: function(e) {
     $.ajax({
       method: "POST",
-      // url: this.props.origin + "/api/auth",
-      url: "http://localhost:3001/api/auth",
+      url: this.props.origin + "/api/auth",
       data: {
 
           email: this.state.email,
