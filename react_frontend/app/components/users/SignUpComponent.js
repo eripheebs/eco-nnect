@@ -52,33 +52,33 @@ var SignUpComponent = React.createClass({
   render:function(){
     return (
       <div>
-      <form>
-        <input type='text'
-          name='name'
-          placeholder='name'
-          value={this.state.name}
-          onChange={this._handleInputChange} />
+        <form>
+          <input type='text'
+            name='name'
+            placeholder='name'
+            value={this.state.name}
+            onChange={this._handleInputChange} />
 
-        <input type='email'
-          name='email'
-          placeholder='email'
-          value={this.state.email}
-          onChange={this._handleInputChange} />
+          <input type='email'
+            name='email'
+            placeholder='email'
+            value={this.state.email}
+            onChange={this._handleInputChange} />
 
-        <input type='password'
-          name='password'
-          placeholder='password'
-          value={this.state.password}
-          onChange={this._handleInputChange} />
+          <input type='password'
+            name='password'
+            placeholder='password'
+            value={this.state.password}
+            onChange={this._handleInputChange} />
 
-        <input type='password'
-          name='password_confirmation'
-          placeholder='re-type password'
-          value={this.state.password_confirmation}
-          onChange={this._handleInputChange} />
-      <input onClick={this._handleRegistrationClick} defaultValue="sign up"/>
-      </form>
-      <div id="success-error-messages">{this.state.messages}</div>
+          <input type='password'
+            name='password_confirmation'
+            placeholder='re-type password'
+            value={this.state.password_confirmation}
+            onChange={this._handleInputChange} />
+          <input type='submit' onClick={this._handleRegistrationClick} defaultValue="sign up"/>
+        </form>
+        <div id="success-error-messages">{this.state.messages}</div>
       </div>
     )
   }
