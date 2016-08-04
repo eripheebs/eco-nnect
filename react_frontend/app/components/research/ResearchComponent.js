@@ -40,7 +40,7 @@ var ResearchAPICall = React.createClass({
     return (
       <div>
         <ResearchNew />
-        <div id="Research-feed">
+        <div id="research-feed">
           <ResearchView origin={this.props.origin} readFromAPI={this.readFromAPI} />
         </div>
       </div>
@@ -56,13 +56,13 @@ var ResearchView = React.createClass({
     this.readResearchsFromAPI();
   },
   readResearchsFromAPI: function() {
-    this.props.readFromAPI(this.props.origin + '/researches', function(Researchs) {
-      this.setState({data: Researchs});
+    this.props.readFromAPI(this.props.origin + '/researches', function(researches) {
+      this.setState({data: researches});
     }.bind(this));
   },
   render: function() {
     return (
-      <div className="Research-view">
+      <div className="research-view">
         <ResearchList data={this.state.data} />
       </div>
     );
@@ -71,15 +71,15 @@ var ResearchView = React.createClass({
 
 var ResearchList = React.createClass({
   render: function() {
-    var Researchs = this.props.data.map(function(Research) {
+    var researches = this.props.data.map(function(research) {
       return (
-        <Research key={Research.id} industry={Research.industry} ngo={Research.ngo} />
+        <Research key={research.id} topic={research.topic} description={research.description} />
       );
     });
 
     return (
       <ul className="Researchs-list">
-        {Researchs}
+        {researches}
       </ul>
     );
   }
@@ -88,8 +88,12 @@ var ResearchList = React.createClass({
 var Research = React.createClass({
   render: function() {
     return (
-      <li className="Research">
-        <span className="Research-text"> {this.props.ngo}</span>
+      <li className="research">
+        <div className="research-display">
+          <span className="research-topic"> {this.props.topic}</span>
+          <span className="research-description"> {this.props.description}</span>
+          <div className="research-files"></div>
+        </div>
       </li>
     );
   }
@@ -98,7 +102,7 @@ var Research = React.createClass({
 var ResearchNew = React.createClass({
   render: function(){
     return (
-      <div id="new-Research-link">
+      <div id="new-research-link">
         <a onClick={() => hashHistory.push('/researches/new') }>Add Research</a>
       </div>
     )

@@ -73,7 +73,7 @@ var InvestmentList = React.createClass({
   render: function() {
     var investments = this.props.data.map(function(investment) {
       return (
-        <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} />
+        <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} description={investment.description} />
       );
     });
 
@@ -89,7 +89,11 @@ var Investment = React.createClass({
   render: function() {
     return (
       <li className="investment">
-        <span className="investment-text"> {this.props.ngo}</span>
+        <div className="investment-display">
+          <span className="investment-industry">{this.props.industry}</span>
+          <span className="investment-ngo"> {this.props.ngo}</span>
+          <span className="investment-description">{this.props.description}</span>
+        </div>
       </li>
     );
   }

@@ -36,6 +36,8 @@ gem 'devise_token_auth'
 
 gem 'rails-api'
 
+gem 'thin'
+
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do

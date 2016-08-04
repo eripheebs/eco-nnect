@@ -49,9 +49,9 @@ var MainComponent = React.createClass({
     }.bind(this))
     return (
       <div><NavBarComponent isLoggedIn={this.state.signedIn} />
-        <main>
+        <div id="content">
           {children}
-        </main>
+        </div>
       </div>
     )
   }

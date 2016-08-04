@@ -18,7 +18,8 @@ var SignInComponent = React.createClass({
     return {
       email: '',
       password: '',
-      messages: ''
+      messages: '',
+      alert: ''
     };
   },
   _handleSignInClick: function(e) {
@@ -33,7 +34,7 @@ var SignInComponent = React.createClass({
       }
     })
     .then(function(data){
-      this.setState({ messages: "You have signed in succesfully." });
+      this.setState({ messages: "You have signed in succesfully.", alert: "alert alert-success" });
     }.bind(this), function(data){
       var responseFromApi = '';
       var errorArray = $.parseJSON(data.responseText).errors;
@@ -41,26 +42,26 @@ var SignInComponent = React.createClass({
         responseFromApi = responseFromApi.concat(errorArray[i], ", ");
       };
       responseFromApi = responseFromApi.slice(0, -2);
-      this.setState({ messages: responseFromApi});
+      this.setState({ messages: responseFromApi, alert: "alert alert-danger"});
     }.bind(this))
   },
   render:function(){
     return (
       <div>
-      <form>
-          <input type='email'
-            name='email'
-            placeholder='email'
-            value={this.state.email}
-            onChange={this._handleInputChange} />
-          <input type='password'
-            name='password'
-            placeholder='password'
-            value={this.state.password}
-            onChange={this._handleInputChange} />
-          <input type='submit' onClick={this._handleSignInClick} defaultValue='login' />
-      </form>
-      <div id="success-error-messages">{this.state.messages}</div>
+        <form>
+            <input type='email'
+              name='email'
+              placeholder='email'
+              value={this.state.email}
+              onChange={this._handleInputChange} />
+            <input type='password'
+              name='password'
+              placeholder='password'
+              value={this.state.password}
+              onChange={this._handleInputChange} />
+            <input type='submit' onClick={this._handleSignInClick} defaultValue='login' />
+        </form>
+        <div className={this.state.alert}>{this.state.messages}</div>
       </div>
     )
   }
