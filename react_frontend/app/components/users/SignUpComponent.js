@@ -26,7 +26,7 @@ var SignUpComponent = React.createClass({
   _handleRegistrationClick: function(e) {
     $.ajax({
       method: "POST",
-      url: this.props.origin + "/api/auth",
+      url: this.props.origin + "/auth",
       data: {
 
           email: this.state.email,
@@ -64,6 +64,8 @@ var SignUpComponent = React.createClass({
             placeholder='email'
             value={this.state.email}
             onChange={this._handleInputChange} />
+
+          <span> Password must be at least 8 characters long. </span>
 
           <input type='password'
             name='password'

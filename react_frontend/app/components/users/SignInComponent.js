@@ -25,7 +25,7 @@ var SignInComponent = React.createClass({
   _handleSignInClick: function(e) {
     $.ajax({
       method: "POST",
-      url: this.props.origin + "/api/auth/sign_in",
+      url: this.props.origin + "/auth/sign_in",
       data: {
 
         email: this.state.email,

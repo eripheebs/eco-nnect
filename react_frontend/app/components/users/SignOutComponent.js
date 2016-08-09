@@ -15,9 +15,9 @@ var SignOutComponent = React.createClass({
   _signOut: function(){
     $.ajax({
       method: "DELETE",
-      url: this.props.origin + "/api/auth/sign_out",
+      url: this.props.origin + "/auth/sign_out",
       data: {
-        
+
       }
     }).done(function(){
       location.reload();
