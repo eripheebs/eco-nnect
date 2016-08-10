@@ -8,3 +8,5 @@
 
 Investment.create(industry: 'Solar', description: 'Funding solar panel research', ngo: 'Fake Corporation Name')
 Investment.create(industry: 'Marine Conservation', description: 'Funding marine conservation initiatives', ngo: 'Fake Corporation Name 2')
+
+Research.create(topic: 'Solar Panels', description: 'Research into making solar panels more efficient. Blahb lah blah blah blah blah', files: '[]')

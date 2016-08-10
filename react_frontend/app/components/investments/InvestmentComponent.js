@@ -1,10 +1,21 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Reqwest = require('reqwest');
+var hashHistory = require('react-router').hashHistory;
+var MainComponent = require('../MainComponent');
+
+var getUserSession = {
+  isLoggedIn : MainComponent.signedIn
+}
 
 var InvestmentComponent = React.createClass({
+  getInitialState: function(){
+    return getUserSession;
+  },
   render: function(){
-    return <InvestmentAPICall />
+    return (
+      <InvestmentAPICall />
+    )
   }
 });
 
@@ -27,8 +38,11 @@ var InvestmentAPICall = React.createClass({
   },
   render: function () {
     return (
-      <div id="investment-feed">
-        <InvestmentView origin={this.props.origin} readFromAPI={this.readFromAPI} />
+      <div>
+        <InvestmentNew />
+        <div id="investment-feed">
+          <InvestmentView origin={this.props.origin} readFromAPI={this.readFromAPI} />
+        </div>
       </div>
     );
   }
@@ -59,7 +73,7 @@ var InvestmentList = React.createClass({
   render: function() {
     var investments = this.props.data.map(function(investment) {
       return (
-        <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} />
+        <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} description={investment.description} />
       );
     });
 
@@ -71,14 +85,29 @@ var InvestmentList = React.createClass({
   }
 });
 
-var Investment = module.exports = React.createClass({
+var Investment = React.createClass({
   render: function() {
     return (
       <li className="investment">
-        <span className="investment-text"> {this.props.ngo}</span>
+        <div className="investment-display">
+          <span className="investment-industry">{this.props.industry}</span>
+          <span className="investment-ngo"> {this.props.ngo}</span>
+          <span className="investment-description">{this.props.description}</span>
+        </div>
       </li>
     );
   }
 });
+
+var InvestmentNew = React.createClass({
+  render: function(){
+    return (
+      <div id="new-investment-link">
+        <a onClick={() => hashHistory.push('/investments/new') }>Add an Investment Opportunity</a>
+      </div>
+    )
+  }
+})
+
 
 module.exports = InvestmentComponent;
