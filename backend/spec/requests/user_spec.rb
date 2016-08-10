@@ -7,7 +7,7 @@ describe 'UserAPI' do
   describe 'POST /users' do
     it 'creates a new user' do
       new_user = FactoryGirl.build(:user)
-      opts = { 'username': new_user.username,
+      opts = { 'name': new_user.name,
         'email': new_user.email,
         'password': new_user.password,
         'password_confirmation': new_user.password_confirmation

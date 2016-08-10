@@ -5,6 +5,12 @@ describe 'InvestmentsAPI' do
                             'Content-Type': 'application/json' } }
   let!(:investment) {FactoryGirl.create(:investment)}
 
+  before(:each) do
+    user = FactoryGirl.build(:user)
+    auth_headers = user.create_new_auth_token
+    request_headers.merge!(auth_headers)
+  end
+
   describe 'POST /investments' do
     it 'creates a new investment' do
       new_investment = FactoryGirl.build(:investment)
