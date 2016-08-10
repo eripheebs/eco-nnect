@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var _ = require('lodash');
 var $ = require('jquery');
 var Auth = require('j-toker');
-Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/' : ''});
+Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''});
 
 var SignInComponent = React.createClass({
   _handleInputChange: function(ev) {
@@ -32,13 +32,7 @@ var SignInComponent = React.createClass({
       this.setState({ messages: "You have signed in succesfully.", alert: "alert alert-success" });
       this.setTimeout(location.reload(), 4000).bind(this);
     }.bind(this), function(data){
-      var responseFromApi = '';
-      var errorArray = $.parseJSON(data.responseText).errors;
-      for (var i = 0; i < errorArray.length; i++) {
-        responseFromApi = responseFromApi.concat(errorArray[i], ", ");
-      };
-      responseFromApi = responseFromApi.slice(0, -2);
-      this.setState({ messages: responseFromApi, alert: "alert alert-danger"});
+      this.setState({ messages: 'Please enter a valid email address', alert: "alert alert-danger"});
     }.bind(this))
   },
   render:function(){

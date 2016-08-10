@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var _ = require('lodash');
 var $ = require('jquery');
 var Auth = require('j-toker');
-Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/' : ''});
+Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''});
 
 var SignUpComponent = React.createClass({
   _handleInputChange: function(ev) {
