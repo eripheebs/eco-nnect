@@ -6,7 +6,7 @@ class ResearchesController < ApplicationController
   end
 
   def create
-    investment = Research.new(investment_params)
+    research = Research.new(research_params)
     render json:research if research.save
   end
 
