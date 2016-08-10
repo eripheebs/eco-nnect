@@ -4,7 +4,7 @@ describe 'UserAPI' do
   let!(:request_headers) { { 'Accept': 'application/json',
                             'Content-Type': 'application/json' } }
 
-  describe 'POST /users' do
+  describe 'POST /auth' do
     it 'creates a new user' do
       new_user = FactoryGirl.build(:user)
       opts = { 'name': new_user.name,
@@ -12,7 +12,7 @@ describe 'UserAPI' do
         'password': new_user.password,
         'password_confirmation': new_user.password_confirmation
       }
-      post '/users',
+      post '/auth',
            set_user_params(opts),
            request_headers
 

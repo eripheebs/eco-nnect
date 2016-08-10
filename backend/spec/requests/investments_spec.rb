@@ -73,11 +73,20 @@ describe 'InvestmentsAPI' do
 
   describe 'DELETE /investments/:id' do
     it 'deletes an investment' do
-      delete "/investments/#{investment.id}"
+      new_investment = FactoryGirl.build(:investment)
+      opts = { 'industry': new_investment.industry,
+      'description': new_investment.description,
+      'ngo': new_investment.ngo
+      }
+      post '/investments',
+            set_investment_params(opts),
+            request_headers
+            id = Investment.find_by(industry: new_investment.industry).id
+      delete "/investments/#{id}"
 
       expect(response.status).to eq 200
 
-      expect(Investment.all).not_to include investment
+      expect(Investment.all).not_to include new_investment
     end
   end
 end
