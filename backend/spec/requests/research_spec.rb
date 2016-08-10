@@ -67,7 +67,7 @@ describe 'ReseachAPI' do
 
       expect(response.status).to eq 200
 
-      expect(research.find(research.id).topic).to eq 'Jollybean topic'
+      expect(Research.find(research.id).topic).to eq 'Jollybean topic'
     end
   end
 
