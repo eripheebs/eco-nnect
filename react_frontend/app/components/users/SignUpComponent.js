@@ -46,7 +46,7 @@ var SignUpComponent = React.createClass({
   render:function(){
     return (
       <div>
-        <form>
+        
           <input type='text'
             name='name'
             placeholder='name'
@@ -73,7 +73,7 @@ var SignUpComponent = React.createClass({
             value={this.state.password_confirmation}
             onChange={this._handleInputChange} />
           <button className='btn btn-primary' onClick={this._handleRegistrationClick} > Sign up </button>
-        </form>
+
         <div id="success-error-messages">{this.state.messages}</div>
       </div>
     )

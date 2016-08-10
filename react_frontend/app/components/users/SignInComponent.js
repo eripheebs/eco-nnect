@@ -32,13 +32,13 @@ var SignInComponent = React.createClass({
       location.reload();
     }.bind(this))
     .fail(function(resp){
-      this.setState({ messages: "Please enter a valid email address.", alert: "alert alert-danger"});
+      this.setState({ messages: resp.reason, alert: "alert alert-danger"});
     }.bind(this))
   },
   render:function(){
     return (
       <div>
-        <form>
+
             <input type='email'
               name='email'
               placeholder='email'
@@ -50,7 +50,7 @@ var SignInComponent = React.createClass({
               value={this.state.password}
               onChange={this._handleInputChange} />
             <button className='btn btn-primary' onClick={this._handleSignInClick} > Login </button>
-        </form>
+
         <div className={this.state.alert}>{this.state.messages}</div>
       </div>
     )
