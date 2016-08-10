@@ -1,7 +1,6 @@
 var React     = require('react');
 var $         = require('jquery');
 var Auth = require('j-toker');
-Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''});
 
 var SignOutComponent = React.createClass({
   render:function(){

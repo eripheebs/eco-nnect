@@ -3,7 +3,6 @@ var ReactDOM = require('react-dom');
 var _ = require('lodash');
 var $ = require('jquery');
 var Auth = require('j-toker');
-Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''});
 
 var SignUpComponent = React.createClass({
   _handleInputChange: function(ev) {
@@ -73,7 +72,7 @@ var SignUpComponent = React.createClass({
             placeholder='re-type password'
             value={this.state.password_confirmation}
             onChange={this._handleInputChange} />
-          <input type='submit' onClick={this._handleRegistrationClick} defaultValue="sign up"/>
+          <button className='btn btn-primary' onClick={this._handleRegistrationClick} > Sign up </button>
         </form>
         <div id="success-error-messages">{this.state.messages}</div>
       </div>

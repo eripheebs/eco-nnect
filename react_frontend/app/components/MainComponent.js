@@ -5,7 +5,6 @@ var Router = require('react-router').Router;
 var RouteHandler = Router.RouteHandler;
 var NavBarComponent = require('./NavBarComponent');
 var Auth = require('j-toker');
-Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''});
 
 var MainComponent = React.createClass({
   checkSession: function(){

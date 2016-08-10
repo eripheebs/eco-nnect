@@ -3,7 +3,6 @@ var ReactDOM = require('react-dom');
 var _ = require('lodash');
 var $ = require('jquery');
 var Auth = require('j-toker');
-Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''});
 
 var SignInComponent = React.createClass({
   _handleInputChange: function(ev) {
@@ -30,9 +29,10 @@ var SignInComponent = React.createClass({
     })
     .then(function(data){
       this.setState({ messages: "You have signed in succesfully.", alert: "alert alert-success" });
-      this.setTimeout(location.reload(), 4000).bind(this);
-    }.bind(this), function(data){
-      this.setState({ messages: 'Please enter a valid email address', alert: "alert alert-danger"});
+      location.reload();
+    }.bind(this))
+    .fail(function(resp){
+      this.setState({ messages: "Please enter a valid email address.", alert: "alert alert-danger"});
     }.bind(this))
   },
   render:function(){
@@ -49,7 +49,7 @@ var SignInComponent = React.createClass({
               placeholder='password'
               value={this.state.password}
               onChange={this._handleInputChange} />
-            <input type='submit' onClick={this._handleSignInClick} defaultValue='login' />
+            <button className='btn btn-primary' onClick={this._handleSignInClick} > Login </button>
         </form>
         <div className={this.state.alert}>{this.state.messages}</div>
       </div>
