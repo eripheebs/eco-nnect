@@ -4,40 +4,32 @@ var $ = require('jquery');
 var Router = require('react-router').Router;
 var RouteHandler = Router.RouteHandler;
 var NavBarComponent = require('./NavBarComponent');
+var Auth = require('j-toker');
+Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/' : ''});
 
 var MainComponent = React.createClass({
-  getDefaultProps: function() {
-    return {origin: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''};
+  checkSession: function(){
+    Auth.validateToken()
+      .then(function(user) {
+        console.log("token validated")
+        this.setState({
+          userEmail: user.email,
+          signedIn: true
+        })
+      }.bind(this))
+      .fail(function() {
+        console.log("no user logged in")
+      });
   },
   getInitialState: function() {
     return {
       signedIn: null,
-      user: this.getUser(),
+      userEmail: null,
       updateSession: this.checkSession()
     };
   },
-  checkSession: function(){
-    $.ajax({
-      method: "GET",
-      url: this.props.origin + "/auth/is_signed_in"
-    })
-    .done(function(data){
-      console.log(data.signed_in);
-      this.setState({ signedIn: data.signed_in });
-    }.bind(this));
-  },
   componentWillMount: function() {
-    return this.checkSession()
-  },
-  getUser: function(){
-    $.ajax({
-      method: "GET",
-      url: this.props.origin + "/auth/is_signed_in"
-    })
-    .done(function(data){
-      console.log(data);
-      return data.user;
-    })
+    this.checkSession()
   },
   render: function(){
     var children = React.Children.map(this.props.children, function(child) {

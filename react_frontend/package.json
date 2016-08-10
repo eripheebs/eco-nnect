@@ -52,7 +52,11 @@
     "sass-loader": "^4.0.0",
     "url-loader": "^0.5.5",
     "less": "^1.7.5",
-    "less-loader": "^0.7.7"
+    "less-loader": "^0.7.7",
+    "j-toker":"^0.0.10-beta3",
+    "jquery-deparam": "^0.1.0",
+    "jquery.cookie": "^1.4.1",
+    "pubsub-js": "^1.5.2"
   },
   "directories": {
     "test": "test"

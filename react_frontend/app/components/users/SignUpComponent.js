@@ -2,11 +2,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('lodash');
 var $ = require('jquery');
+var Auth = require('j-toker');
+Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/' : ''});
 
 var SignUpComponent = React.createClass({
-  getDefaultProps: function() {
-    return {origin: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''};
-  },
   _handleInputChange: function(ev) {
     var nextState = _.cloneDeep(this.state);
 
@@ -24,19 +23,15 @@ var SignUpComponent = React.createClass({
     };
   },
   _handleRegistrationClick: function(e) {
-    $.ajax({
-      method: "POST",
-      url: this.props.origin + "/auth",
-      data: {
+    Auth.emailSignUp({
 
-          email: this.state.email,
-          uid: this.state.email,
-          password: this.state.password,
-          password_confirmation: this.state.password_confirmation,
-          name: this.state.name,
-          provider: "email"
+      email: this.state.email,
+      uid: this.state.email,
+      password: this.state.password,
+      password_confirmation: this.state.password_confirmation,
+      name: this.state.name,
+      provider: "email"
 
-      }
     }).then(function(data){
       this.setState({ messages: "Your account has been created"});
     }.bind(this), function(data){

@@ -2,11 +2,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('lodash');
 var $ = require('jquery');
+var Auth = require('j-toker');
+Auth.configure({apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/' : ''});
 
 var SignInComponent = React.createClass({
-  getDefaultProps: function() {
-    return {origin: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''};
-  },
   _handleInputChange: function(ev) {
     var nextState = _.cloneDeep(this.state);
 
@@ -23,18 +22,15 @@ var SignInComponent = React.createClass({
     };
   },
   _handleSignInClick: function(e) {
-    $.ajax({
-      method: "POST",
-      url: this.props.origin + "/auth/sign_in",
-      data: {
+    Auth.emailSignIn({
 
-        email: this.state.email,
-        password: this.state.password
+      email: this.state.email,
+      password: this.state.password
 
-      }
     })
     .then(function(data){
       this.setState({ messages: "You have signed in succesfully.", alert: "alert alert-success" });
+      this.setTimeout(location.reload(), 4000).bind(this);
     }.bind(this), function(data){
       var responseFromApi = '';
       var errorArray = $.parseJSON(data.responseText).errors;
