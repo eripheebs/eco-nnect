@@ -1,0 +1,55 @@
+body{
+  background-color: #FAFFFB;
+}
+
+#home-nav-box{
+  text-align: center;
+  font-family: Rajdhani;
+  font-size: 5vw;
+}
+
+#home-welcome{
+  padding-bottom: 2%;
+}
+
+#home-sub-text{
+  font-size: 4vh;
+}
+
+#home-nav-box > button{
+  transition: all 0.6s ease 0s;
+}
+
+#home-research{
+  font-family: Raleway Dots;
+  border: none;
+  height: 45vh;
+  width: 300px;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  background:url(http://hdsa.org/wp-content/uploads/2015/02/img_researchHD_timeline1.jpg);
+  background-size: cover;
+  color: #F5FAF6;
+}
+
+#home-research:hover{
+  opacity: 0.75;
+  margin-right: 1vw;
+}
+
+#home-investments{
+  font-family: Raleway Dots;
+  background:url(http://49.media.tumblr.com/718919abfb6c03a3a1620a77aeaf2eb7/tumblr_nysgpbuipm1qjmwryo1_250.gif);
+  background-size: 100%;
+  margin-left: 0.5vw;
+  margin-right: 3vw;
+  border: none;
+  height: 45vh;
+  width: 300px;
+  color: #F5FAF6;
+}
+
+#home-investments:hover{
+  opacity: 0.75;
+  margin-left: 1vw;
+}

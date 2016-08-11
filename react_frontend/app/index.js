@@ -6,10 +6,22 @@ var Link = require('react-router').Link;
 var hashHistory = require('react-router').hashHistory;
 require('bootstrap-webpack');
 require('./css/main.css');
+require('./css/home.css');
 var Auth = require('j-toker');
 Auth.configure({
   apiUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''
 });
+var fonts =require('google-fonts');
+
+fonts.add({
+  'Rajdhani': true,
+  'Fugaz One': true,
+  'Yeseva One': true,
+  'Quicksand': true,
+  'Codystar': true,
+  'Raleway Dots': true,
+  'Megrim': true
+})
 
 var RouterComponent = require('./components/RouterComponent');
 

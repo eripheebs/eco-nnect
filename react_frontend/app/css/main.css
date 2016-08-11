@@ -9,8 +9,9 @@ body { padding-top: 70px; }
 }
 
 .navbar-navigation {
-    background-color: rgb(255, 255, 255);
-	border-color: rgb(95, 176, 228);
+  font-family: Quicksand;
+  background-color: #04260B;
+	border-color: #9EDBAA;
 	border-radius: 0px;
 	margin-bottom: 0px;
 	z-index: 100;
@@ -30,18 +31,19 @@ body { padding-top: 70px; }
 	width: 100%;
 }
 .navbar-navigation .navbar-toggle .icon-bar {
-	background-color: rgb(95, 176, 228);
+	background-color: #9EDBAA;
 }
 
 .navbar-navigation .navbar-brand {
-	color: rgb(95, 176, 228);
+	color: #9EDBAA;
+  font-family: Codystar;
 	font-weight: 900;
 	letter-spacing: 2px;
 }
 
 .navbar-navigation .navbar-nav > li > a {
-	border: 0px solid rgb(95, 176, 228);
-	color: rgb(120, 120, 120);
+	border: 0px solid #9EDBAA;
+	color: #9EDBAA;
 	padding: 15px 14px;
 }
 
@@ -55,11 +57,11 @@ body { padding-top: 70px; }
 .navbar-navigation .navbar-nav > li:not(.disabled) > a:hover,
 .navbar-navigation .navbar-nav > li:not(.disabled) > a:focus {
 	border-left-width: 5px;
-	color: rgb(95, 176, 228);
+	color: #9EDBAA;
 	padding-left: 10px;
 }
 .navbar-navigation .navbar-nav > li.disabled > a {
-	color: rgb(200, 200, 200);
+	color: #04260B;
 }
 
 .navbar-navigation .navbar-nav > li > .dropdown-menu {
@@ -74,8 +76,8 @@ body { padding-top: 70px; }
 	right: auto;
 }
 .navbar-navigation .navbar-nav > li > .dropdown-menu > li > a {
-	border-left: 0px solid rgb(95, 176, 228);
-	color: rgb(120, 120, 120);
+	border-left: 0px solid #9EDBAA;
+	color: #9EDBAA;
 	font-size: 16px;
 	font-weight: 400;
 	padding: 10px 20px;
@@ -84,7 +86,7 @@ body { padding-top: 70px; }
 .navbar-navigation .navbar-nav > li > .dropdown-menu > li.active > a,
 .navbar-navigation .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-navigation .navbar-nav > li > .dropdown-menu > li > a:focus {
-	background-color: rgb(245, 245, 245);
+	background-color: #04260B;
 	border-left-width: 5px;
 	padding-left: 15px;
 }
@@ -126,6 +128,7 @@ body { padding-top: 70px; }
 	.navbar-navigation .navbar-nav > li:not(.disabled).active > a,
 	.navbar-navigation .navbar-nav > li:not(.disabled) > a:hover,
 	.navbar-navigation .navbar-nav > li:not(.disabled) > a:focus {
+    background-color: #04260B;
 		border-bottom-width: 5px;
 		border-left-width: 0px;
 		padding-bottom: 10px;
@@ -139,7 +142,7 @@ body { padding-top: 70px; }
 
 
 	.navbar-navigation .navigation-search {
-		background-color: rgb(235, 235, 235);
+		background-color: #04260B;
 		display: block;
 		position: absolute;
 		top: 100%;
