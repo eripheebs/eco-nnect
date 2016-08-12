@@ -6,7 +6,8 @@ class InvestmentsController < ApplicationController
   end
 
   def create
-    investment = Investment.new(investment_params)
+    user = current_user
+    investment = user.Investment.new(investment_params)
     render json:investment if investment.save
   end
 
@@ -16,12 +17,19 @@ class InvestmentsController < ApplicationController
 
   def update
     investment = Investment.find(params[:id])
-    render json: investment.update(investment_params)
+    if current_user.has_created?(investment)
+      render json: investment.update(investment_params)
+    else
+      p "this isnt your invesment"
+    end
   end
 
   def destroy
     investment = Investment.find(params[:id])
-    render json: investment.destroy
+    if current_user.has_created?(investment)
+      render json: investment.destroy
+    else
+    end
   end
 
   private

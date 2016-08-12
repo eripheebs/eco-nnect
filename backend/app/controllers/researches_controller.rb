@@ -6,7 +6,8 @@ class ResearchesController < ApplicationController
   end
 
   def create
-    investment = Research.new(investment_params)
+    user = current_user
+    research = user.Research.new(reasearch_params)
     render json:research if research.save
   end
 
@@ -16,12 +17,18 @@ class ResearchesController < ApplicationController
 
   def update
     research = Research.find(params[:id])
-    render json: research.update(research_params)
+    if current_user.has_created?(reasearch)
+      render json: research.update(research_params)
+    else
+    end
   end
 
   def destroy
     research = Research.find(params[:id])
-    render json: research.destroy
+    if current_user.has_created?(reasearch)
+      rrender json: research.destroy
+    else
+    end
   end
 
   private

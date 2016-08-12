@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812105905) do
+ActiveRecord::Schema.define(version: 20160812114031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20160812105905) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "title"
+    t.integer  "user_id"
   end
+
+  add_index "investments", ["user_id"], name: "index_investments_on_user_id", using: :btree
 
   create_table "researches", force: :cascade do |t|
     t.string   "topic"
@@ -31,7 +34,10 @@ ActiveRecord::Schema.define(version: 20160812105905) do
     t.string   "files"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "researches", ["user_id"], name: "index_researches_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -62,4 +68,6 @@ ActiveRecord::Schema.define(version: 20160812105905) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  add_foreign_key "investments", "users"
+  add_foreign_key "researches", "users"
 end
