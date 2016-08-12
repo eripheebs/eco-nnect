@@ -86,6 +86,12 @@ var InvestmentList = React.createClass({
 });
 
 var Investment = React.createClass({
+  cutDescriptionSize: function(description){
+    return description.slice(0, 296);
+  },
+  fitsInBox: function(description){
+    return (description.length < 296) ? true : false
+  },
   render: function() {
     return (
         <li className="investment">
@@ -93,7 +99,7 @@ var Investment = React.createClass({
             <span className="investment-title">Fake Title</span><br />
             <span className="investment-industry">Industry: {this.props.industry}</span>
             <span className="investment-ngo">NGO: {this.props.ngo}</span><br />
-            <span className="investment-description">{this.props.description}... <a href="#">Full details</a> </span>
+            <span className="investment-description">{this.cutDescriptionSize(this.props.description)}<span className={"hide-" + this.fitsInBox(this.props.description)}>... <a href="#">Full details</a></span> </span>
           </div>
         </li>
     );
