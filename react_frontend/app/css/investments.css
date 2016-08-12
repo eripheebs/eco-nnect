@@ -1,0 +1,53 @@
+.investments-list{
+  list-style: none;
+}
+
+.investment{
+
+}
+
+.investment-display{
+  padding: 1%;
+  height: 14vh;
+  width: 50vw;
+  border: 1px solid black;
+  margin: 2%;
+  font-size: 1.5vh;
+}
+
+#new-investment-link{
+  position: relative;
+  float:right;
+  right: 20px;
+}
+
+.investment-view{
+    width: 100%;
+}
+
+#investment-feed{
+  padding: 4%;
+  width: 100%;
+}
+
+#investment-page{
+  width: 100vw;
+}
+
+.investment-title{
+  font-size: 2vh;
+  font-weight: bold;
+  margin-right: 1%;
+}
+
+.investment-industry{
+  margin-right: 3%;
+}
+
+.investment-ngo{
+
+}
+
+.investment-description{
+
+}

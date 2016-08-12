@@ -53,3 +53,8 @@ body{
   opacity: 0.75;
   margin-left: 1vw;
 }
+
+#home-more-text{
+  margin-top: 4%;
+  font-size: 2vh;
+}

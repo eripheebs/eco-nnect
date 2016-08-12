@@ -38,7 +38,7 @@ var InvestmentAPICall = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div id="investment-page">
         <InvestmentNew />
         <div id="investment-feed">
           <InvestmentView origin={this.props.origin} readFromAPI={this.readFromAPI} />
@@ -88,13 +88,14 @@ var InvestmentList = React.createClass({
 var Investment = React.createClass({
   render: function() {
     return (
-      <li className="investment">
-        <div className="investment-display">
-          <span className="investment-industry">{this.props.industry}</span>
-          <span className="investment-ngo"> {this.props.ngo}</span>
-          <span className="investment-description">{this.props.description}</span>
-        </div>
-      </li>
+        <li className="investment">
+          <div className="investment-display">
+            <span className="investment-title">Fake Title</span><br />
+            <span className="investment-industry">Industry: {this.props.industry}</span>
+            <span className="investment-ngo">NGO: {this.props.ngo}</span><br />
+            <span className="investment-description">{this.props.description}... <a href="#">Full details</a> </span>
+          </div>
+        </li>
     );
   }
 });
