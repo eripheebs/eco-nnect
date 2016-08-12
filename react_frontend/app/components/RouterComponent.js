@@ -13,6 +13,7 @@ var NewInvestmentComponent = require('./investments/NewInvestmentComponent');
 var SignInComponent = require('./users/SignInComponent');
 var SignUpComponent = require('./users/SignUpComponent');
 var SignOutComponent = require('./users/SignOutComponent');
+var EachInvestmentComponent = require('./investments/EachInvestmentComponent');
 
 var RouterComponent = React.createClass({
   render: function(){
@@ -23,6 +24,7 @@ var RouterComponent = React.createClass({
           <Route name='researches' path='researches' component={ResearchComponent} />
           <Route name='new_research' path='researches/new' component={NewResearchComponent} />
           <Route name='investments' path='investments' component={InvestmentComponent} />
+          <Route name='investment' path='investment' component={EachInvestmentComponent} />
           <Route name='new_investment' path='investments/new' component={NewInvestmentComponent} />
           <Route name='log_in' path='log_in' component={SignInComponent} />
           <Route name='sign_up' path='sign_up' component={SignUpComponent} />
