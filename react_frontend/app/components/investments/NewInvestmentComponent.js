@@ -4,7 +4,7 @@ var Reqwest = require('reqwest');
 var MainComponent = require('../MainComponent');
 
 var getUserSession = {
-  isLoggedIn : MainComponent.signedIn,
+  isLoggedIn : MainComponent.isLoggedIn,
   user: MainComponent.getUser
 }
 
@@ -21,7 +21,6 @@ var NewInvestmentForm = React.createClass({
   render: function(){
     return this.props.user
   }
-
 });
 
 module.exports = NewInvestmentComponent;

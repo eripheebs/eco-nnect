@@ -99,7 +99,7 @@ var Investment = React.createClass({
             <span className="investment-title">Fake Title</span><br />
             <span className="investment-industry">Industry: {this.props.industry}</span>
             <span className="investment-ngo">NGO: {this.props.ngo}</span><br />
-            <span className="investment-description">{this.cutDescriptionSize(this.props.description)}<span className={"hide-" + this.fitsInBox(this.props.description)}>... <a href="#">Full details</a></span> </span>
+            <span className="investment-description">{this.cutDescriptionSize(this.props.description)}<span className={"hide-" + this.fitsInBox(this.props.description)}>... <a href="#" onClick={() => hashHistory.push('/investment')} ngo={this.props.ngo}>Full details</a></span> </span>
           </div>
         </li>
     );
@@ -110,7 +110,7 @@ var InvestmentNew = React.createClass({
   render: function(){
     return (
       <div id="new-investment-link">
-        <a onClick={() => hashHistory.push('/investments/new') }>Add an Investment Opportunity</a>
+        <button onClick={() => hashHistory.push('/investments/new') }>Add an Investment Opportunity</button>
       </div>
     )
   }

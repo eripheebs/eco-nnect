@@ -15,7 +15,7 @@ Auth.configure({
 var fonts =require('google-fonts');
 
 fonts.add({
-  'Rajdhani': true,
+  'Raleway': true,
   'Fugaz One': true,
   'Yeseva One': true,
   'Quicksand': true,

@@ -4,8 +4,8 @@ body{
 
 #home-nav-box{
   text-align: center;
-  font-family: Rajdhani;
-  font-size: 5vw;
+  font-family: Raleway;
+  font-size: 4vw;
 }
 
 #home-welcome{
@@ -13,7 +13,7 @@ body{
 }
 
 #home-sub-text{
-  font-size: 4vh;
+  font-size: 3vh;
 }
 
 #home-nav-box > button{
@@ -57,4 +57,40 @@ body{
 #home-more-text{
   margin-top: 4%;
   font-size: 2vh;
+}
+
+
+#about-us{
+  font-family: Raleway Dots;
+  background:url(http://il6.picdn.net/shutterstock/videos/5315567/thumb/8.jpg);
+  background-size: 100%;
+  margin-left: 0.5vw;
+  margin-right: 3vw;
+  border: none;
+  height: 20vh;
+  width: 50vw;
+  color: #F5FAF6;
+}
+
+#about-us:hover{
+  opacity: 0.75;
+  margin-left: 1.3vw;
+}
+
+#another-button{
+  font-family: Raleway Dots;
+  float: left;
+  background:url(https://66.media.tumblr.com/15dedb1ca26b62e1ae86a69a643ad612/tumblr_mzabr520dw1skrtuto1_500.gif);
+  background-size: 100%;
+  margin-left: 0.5vw;
+  margin-right: 0vw;
+  border: none;
+  height: 20vh;
+  width: 40vw;
+  color: #F5FAF6;
+}
+
+#another-button:hover{
+  opacity: 0.75;
+  margin-left: 1vw;
 }
