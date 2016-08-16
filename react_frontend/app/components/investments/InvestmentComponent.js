@@ -13,9 +13,7 @@ var InvestmentComponent = React.createClass({
     return getUserSession;
   },
   render: function(){
-    return (
-      <InvestmentAPICall />
-    )
+    return <InvestmentAPICall />
   }
 });
 
@@ -73,7 +71,7 @@ var InvestmentList = React.createClass({
   render: function() {
     var investments = this.props.data.map(function(investment) {
       return (
-        <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} description={investment.description} />
+        <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} description={investment.description} title={investment.title} />
       );
     });
 
@@ -86,23 +84,50 @@ var InvestmentList = React.createClass({
 });
 
 var Investment = React.createClass({
+  getInitialState: function(){
+    return {
+      allInvestmentView: true
+    }
+  },
   cutDescriptionSize: function(description){
     return description.slice(0, 296);
   },
   fitsInBox: function(description){
     return (description.length < 296) ? true : false
   },
+  switchView: function(title, industry, ngo, description){
+    this.setState({
+      allInvestmentView: false,
+      title: this.props.title,
+      industry: this.props.industry,
+      ngo: this.props.ngo,
+      description: this.props.description
+    })
+  },
   render: function() {
-    return (
+    return this.state.allInvestmentView ? (
         <li className="investment">
           <div className="investment-display">
-            <span className="investment-title">Fake Title</span><br />
+            <span className="investment-title">{this.props.title}e</span><br />
             <span className="investment-industry">Industry: {this.props.industry}</span>
             <span className="investment-ngo">NGO: {this.props.ngo}</span><br />
-            <span className="investment-description">{this.cutDescriptionSize(this.props.description)}<span className={"hide-" + this.fitsInBox(this.props.description)}>... <a href="#" onClick={() => hashHistory.push('/investment')} ngo={this.props.ngo}>Full details</a></span> </span>
+            <span className="investment-description">{this.cutDescriptionSize(this.props.description)}<span className={"hide-" + this.fitsInBox(this.props.description)}>... <a onClick={this.switchView}>Full details</a></span> </span>
           </div>
         </li>
-    );
+    ) : (
+      <div className="larger-investment">
+        <span className="investment-title">{this.props.title}e</span><br />
+        <span className="investment-industry">Industry: {this.props.industry}</span>
+        <span className="investment-ngo">NGO: {this.props.ngo}</span><br />
+        <span className="investment-description">{this.props.description}</span>
+      </div>
+    )
+  }
+});
+
+var SingleInvestment = React.createClass({
+  render: function(){
+    return <div>single</div>
   }
 });
 
@@ -114,7 +139,7 @@ var InvestmentNew = React.createClass({
       </div>
     )
   }
-})
+});
 
 
 module.exports = InvestmentComponent;
