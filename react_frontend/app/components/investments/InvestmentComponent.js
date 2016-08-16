@@ -106,7 +106,7 @@ var Investment = React.createClass({
   },
   render: function() {
     return this.state.allInvestmentView ? (
-        <li className="investment">
+        <li className="investment" onClick={this.switchView}>
           <div className="investment-display">
             <span className="investment-title">{this.props.title}e</span><br />
             <span className="investment-industry">Industry: {this.props.industry}</span>
@@ -122,12 +122,6 @@ var Investment = React.createClass({
         <span className="investment-description">{this.props.description}</span>
       </div>
     )
-  }
-});
-
-var SingleInvestment = React.createClass({
-  render: function(){
-    return <div>single</div>
   }
 });
 
