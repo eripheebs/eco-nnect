@@ -6,8 +6,10 @@ class InvestmentsController < ApplicationController
   end
 
   def create
+    p "HIIIIII"
+    p params
     user = current_user
-    investment = user.Investment.new(investment_params)
+    investment = user.investments.new(investment_params)
     render json:investment if investment.save
   end
 
@@ -35,6 +37,6 @@ class InvestmentsController < ApplicationController
   private
 
   def investment_params
-    params.require(:investment).permit(:industry, :description, :ngo)
+    params.permit(:title, :industry, :description, :ngo)
   end
 end
