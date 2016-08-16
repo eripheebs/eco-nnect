@@ -14,7 +14,11 @@ var HomeComponent = React.createClass({
           <button id="home-research" onClick={() => hashHistory.push('/researches') }>Research</button>
           <button id="home-investments" onClick={() => hashHistory.push('/investments') }>Investment</button>
         </ul>
-        <p id="home-more-text"></p>
+        <ul>
+          <button id="about-us">Meet the Team</button>
+          <button id="another-button">Something Else</button>
+        </ul>
+
       </div>
     )
   }

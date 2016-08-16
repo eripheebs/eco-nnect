@@ -8,11 +8,24 @@
 
 .investment-display{
   padding: 1%;
-  height: 14vh;
+  height: 16vh;
   width: 50vw;
-  border: 1px solid black;
+
   margin: 2%;
   font-size: 1.5vh;
+  -webkit-box-shadow: 2px -3px 34px 0px rgba(97,97,97,1);
+  -moz-box-shadow: 2px -3px 34px 0px rgba(97,97,97,1);
+  box-shadow: 2px -3px 34px 0px rgba(97,97,97,1);
+}
+
+.investment-display:hover{
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 600px) {
+  .investment-display{
+    height: 30vh;
+  }
 }
 
 #new-investment-link{
@@ -54,4 +67,16 @@
 
 .hide-true  {
   display: none;
+}
+
+.larger-investment{
+  padding: 1%;
+  min-height: 20vh;
+
+  margin: 2%;
+  font-size: 1.5vh;
+  -webkit-box-shadow: 2px -3px 34px 0px rgba(97,97,97,1);
+  -moz-box-shadow: 2px -3px 34px 0px rgba(97,97,97,1);
+  box-shadow: 2px -3px 34px 0px rgba(97,97,97,1);
+  width: 70vw;
 }
