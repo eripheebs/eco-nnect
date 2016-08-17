@@ -90,10 +90,10 @@ var Investment = React.createClass({
     }
   },
   cutDescriptionSize: function(description){
-    return description.slice(0, 296);
+    if (!!description) return description.slice(0, 296);
   },
   fitsInBox: function(description){
-    return (description.length < 296) ? true : false
+    return (!description || description.length < 296) ? true : false
   },
   switchView: function(title, industry, ngo, description){
     this.setState({
