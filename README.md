@@ -1,5 +1,7 @@
 ### Eco-nnect
 
+spiking the frontend to play around and learn react pls do not judge :p
+
 #To do:
 1. Rails backend
 2. refer to issues for breakdown of tasks

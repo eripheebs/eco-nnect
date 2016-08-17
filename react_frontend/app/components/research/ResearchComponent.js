@@ -86,16 +86,39 @@ var ResearchList = React.createClass({
 });
 
 var Research = React.createClass({
+  getInitialState: function(){
+    return {
+      allResearchView: true
+    }
+  },
+  cutDescriptionSize: function(description){
+    return description.slice(0, 296);
+  },
+  fitsInBox: function(description){
+    return (description.length < 296) ? true : false
+  },
+  switchView: function(title, industry, description){
+    this.setState({
+      allInvestmentView: false,
+      topic: this.props.topic,
+      files: this.props.files,
+      description: this.props.description
+    })
+  },
   render: function() {
-    return (
-      <li className="research">
-        <div className="research-display">
-          <span className="research-topic"> {this.props.topic}</span>
-          <span className="research-description"> {this.props.description}</span>
-          <div className="research-files"></div>
-        </div>
-      </li>
-    );
+    return this.state.allResearchView ? (
+        <li className="investment" onClick={this.switchView}>
+          <div className="investment-display">
+            <span className="investment-title">{this.props.topic}</span><br />
+            <span className="investment-description">{this.cutDescriptionSize(this.props.description)}<span className={"hide-" + this.fitsInBox(this.props.description)}>... <a onClick={this.switchView}>Full details</a></span> </span>
+          </div>
+        </li>
+    ) : (
+      <div className="larger-investment">
+        <span className="investment-title">{this.props.topic}</span><br />
+        <span className="investment-description">{this.props.description}</span>
+      </div>
+    )
   }
 });
 
