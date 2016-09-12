@@ -35,7 +35,8 @@ var MainComponent = React.createClass({
     var children = React.Children.map(this.props.children, function(child) {
       return React.cloneElement(child,
         {
-          updateSession: this.state.updateSession,
+          user: Auth.user,
+          signedIn: !!(Auth.user)
         }
       )
     }.bind(this))

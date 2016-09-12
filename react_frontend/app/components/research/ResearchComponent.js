@@ -99,7 +99,7 @@ var Research = React.createClass({
   },
   switchView: function(title, industry, description){
     this.setState({
-      allInvestmentView: false,
+      allResearchView: false,
       topic: this.props.topic,
       files: this.props.files,
       description: this.props.description
