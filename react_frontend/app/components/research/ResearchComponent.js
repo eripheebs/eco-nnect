@@ -127,7 +127,7 @@ var ResearchNew = React.createClass({
   render: function(){
     return (
       <div id="new-investment-link">
-        <button onClick={() => hashHistory.push('/researches/new') }>Add Research</button>
+        <button className="btn btn-outline-secondary" onClick={() => hashHistory.push('/researches/new') }>Add Research</button>
       </div>
     )
   }

@@ -56,6 +56,8 @@ var NewInvestmentForm = React.createClass({
       },
       success: successFunction,
       dataType: 'json'
+    }).fail(function(){
+      this.setState({messages: 'Something went wrong.', alert: "alert alert-danger"});
     });
   },
   _handleInputChange: function(ev) {
@@ -71,42 +73,46 @@ var NewInvestmentForm = React.createClass({
       industry: '',
       ngo: '',
       description: '',
-      messages: ''
+      messages: '',
+      alert: ''
     };
   },
   _handleNewInvestmentClick: function(e) {
     this.submitInvestment('http://localhost:3001/investments', function(){
-      this.setState({messages: 'Your investment has been submitted.'});
+      this.setState({messages: 'Your investment has been submitted.', alert: "alert alert-success"});
     }.bind(this));
   },
   render: function(){
-    return <div><h2>New Investment</h2>
+    return <div className="form-box"><h2>New Investment</h2>
+      <label>Title</label>
       <input type='text'
+        className="form-control"
         name='title'
         placeholder='title'
         value={this.state.title}
         onChange={this._handleInputChange} />
-
+      <label>Industry</label>
       <input type='text'
+        className="form-control"
         name='industry'
         placeholder='industry'
         value={this.state.industry}
         onChange={this._handleInputChange} />
-
+      <label>NGO</label>
       <input type='text'
+        className="form-control"
         name='ngo'
         placeholder='ngo'
         value={this.state.ngo}
         onChange={this._handleInputChange} />
-
-      <input type='text'
+      <label>Description</label> 
+      <textarea className="form-control" rows="5"
         name='description'
         placeholder='description'
         value={this.state.description}
-        onChange={this._handleInputChange} />
+        onChange={this._handleInputChange} ></textarea>
       <button className='btn btn-primary' onClick={this._handleNewInvestmentClick} > Submit </button>
-
-      <div id="success-error-messages">{this.state.messages}</div>
+      <div className={this.state.alert} id="success-error-messages">{this.state.messages}</div>
     </div>
   }
 });

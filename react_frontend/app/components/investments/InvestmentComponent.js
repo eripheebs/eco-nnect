@@ -123,7 +123,7 @@ var InvestmentNew = React.createClass({
   render: function(){
     return (
       <div id="new-investment-link">
-        <button onClick={() => hashHistory.push('/investments/new') }>Add an Investment Opportunity</button>
+        <button className="btn btn-outline-secondary" onClick={() => hashHistory.push('/investments/new') }>Add an Investment Opportunity</button>
       </div>
     )
   }

@@ -80,3 +80,15 @@
   box-shadow: 2px -3px 34px 0px rgba(97,97,97,1);
   width: 70vw;
 }
+
+.form-box{
+  margin: 6%;
+}
+
+.form-box input{
+  margin: 2%
+}
+
+.form-box textarea{
+  margin: 2%
+}
