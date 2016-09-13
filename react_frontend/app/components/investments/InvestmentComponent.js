@@ -4,14 +4,7 @@ var Reqwest = require('reqwest');
 var hashHistory = require('react-router').hashHistory;
 var MainComponent = require('../MainComponent');
 
-var getUserSession = {
-  isLoggedIn : MainComponent.signedIn
-}
-
 var InvestmentComponent = React.createClass({
-  getInitialState: function(){
-    return getUserSession;
-  },
   render: function(){
     return <InvestmentAPICall />
   }
