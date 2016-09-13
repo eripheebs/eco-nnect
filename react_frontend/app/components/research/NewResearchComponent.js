@@ -58,7 +58,7 @@ var NewResearchForm = React.createClass({
       dataType: 'json'
     }).fail(function(){
       this.setState({messages: 'Something went wrong.', alert: "alert alert-danger"});
-    });
+    }.bind(this));
   },
   _handleInputChange: function(ev) {
     var nextState = _.cloneDeep(this.state);
@@ -72,6 +72,7 @@ var NewResearchForm = React.createClass({
       topic: '',
       description: '',
       messages: '',
+      files: [],
       alert: ''
     };
   },
@@ -79,6 +80,26 @@ var NewResearchForm = React.createClass({
     this.submitResearch('http://localhost:3001/researches', function(){
       this.setState({messages: 'Your research has been submitted.', alert: "alert alert-success"});
     }.bind(this));
+  },
+  handleChangeFile: function (evt) {
+    console.log("Uploading");
+    var self = this;
+    var files = evt.target.files;
+
+    for(var i = 0; i< files.length; i++) {
+      var file = files[i];
+
+      var reader = new FileReader();
+
+      reader.onload = function(upload) {
+        self.state.files.push(upload.target.result);
+        console.log("file" + (i+1) + "uploaded");
+      };
+
+      reader.readAsDataURL(file);
+    }
+    console.log("Files uploaded");
+    this.setState({messages: 'Files uploaded.', alert: "alert alert-success"});
   },
   render: function(){
     return <div className="form-box"><h2>New Research</h2>
@@ -95,6 +116,13 @@ var NewResearchForm = React.createClass({
         placeholder='description'
         value={this.state.description}
         onChange={this._handleInputChange} ></textarea>
+
+      <input type="file"
+        name="files"
+        onChange={this.handleChangeFile}
+        encType="multipart/form-data"
+        multiple/>
+
       <button className='btn btn-primary' onClick={this._handleNewResearchClick} > Submit </button>
       <div className={this.state.alert} id="success-error-messages">{this.state.messages}</div>
     </div>

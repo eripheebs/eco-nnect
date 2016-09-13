@@ -7,7 +7,7 @@ class ResearchesController < ApplicationController
 
   def create
     user = current_user
-    research = user.researches.new(reasearch_params)
+    research = user.researches.new(research_params)
     render json:research if research.save
   end
 

@@ -24,5 +24,8 @@ module.exports = {
       { test: /\.svg$/,    loader: "file-loader" }
     ]
   },
+  node: {
+    fs: "empty"
+  },
   plugins: [HtmlWebpackPluginConfig]
 };

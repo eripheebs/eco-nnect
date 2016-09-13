@@ -58,7 +58,7 @@ var NewInvestmentForm = React.createClass({
       dataType: 'json'
     }).fail(function(){
       this.setState({messages: 'Something went wrong.', alert: "alert alert-danger"});
-    });
+    }.bind(this));
   },
   _handleInputChange: function(ev) {
     var nextState = _.cloneDeep(this.state);
@@ -105,7 +105,7 @@ var NewInvestmentForm = React.createClass({
         placeholder='ngo'
         value={this.state.ngo}
         onChange={this._handleInputChange} />
-      <label>Description</label> 
+      <label>Description</label>
       <textarea className="form-control" rows="5"
         name='description'
         placeholder='description'
