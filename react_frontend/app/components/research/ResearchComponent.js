@@ -40,7 +40,7 @@ var ResearchAPICall = React.createClass({
     return (
       <div>
         <ResearchNew />
-        <div id="research-feed">
+        <div id="investment-feed">
           <ResearchView origin={this.props.origin} readFromAPI={this.readFromAPI} />
         </div>
       </div>
@@ -62,7 +62,7 @@ var ResearchView = React.createClass({
   },
   render: function() {
     return (
-      <div className="research-view">
+      <div className="investment-view">
         <ResearchList data={this.state.data} />
       </div>
     );
@@ -76,11 +76,12 @@ var ResearchList = React.createClass({
         <Research key={research.id} topic={research.topic} description={research.description} />
       );
     });
-
-    return (
-      <ul className="Researchs-list">
+    return !!(this.props.data.length > 0) ? (
+      <ul className="investments-list">
         {researches}
       </ul>
+    ) : (
+      <p>No research has been submitted.</p>
     );
   }
 });
@@ -125,11 +126,11 @@ var Research = React.createClass({
 var ResearchNew = React.createClass({
   render: function(){
     return (
-      <div id="new-research-link">
-        <a onClick={() => hashHistory.push('/researches/new') }>Add Research</a>
+      <div id="new-investment-link">
+        <button onClick={() => hashHistory.push('/researches/new') }>Add Research</button>
       </div>
     )
   }
-})
+});
 
 module.exports = ResearchComponent;

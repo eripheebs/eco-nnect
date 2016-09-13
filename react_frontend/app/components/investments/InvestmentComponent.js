@@ -74,11 +74,12 @@ var InvestmentList = React.createClass({
         <Investment key={investment.id} industry={investment.industry} ngo={investment.ngo} description={investment.description} title={investment.title} />
       );
     });
-
-    return (
+    return !!(this.props.data.length > 0) ? (
       <ul className="investments-list">
         {investments}
       </ul>
+    ) : (
+      <p>No investments are recorded.</p>
     );
   }
 });
