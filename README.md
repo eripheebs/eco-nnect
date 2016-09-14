@@ -7,9 +7,15 @@ spiking the frontend to play around and learn react pls do not judge :p
 2. refer to issues for breakdown of tasks
 
 ####To run the app locally:
+Open terminal:
 ```
+$ git clone https://github.com/eripheebs/eco-nnect.git
+$ cd eco-nnect
 $ cd react_frontend
 $ npm run devserve
+```
+In another terminal tab:
+```
 $ cd ..
 $ cd backend
 $ bin/rake db:create
