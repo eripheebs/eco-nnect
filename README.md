@@ -24,6 +24,7 @@ $ bin/rake db:seed
 $ export AUTH0_CLIENT_ID = (your client id here)
 $ export AUTH0_CLIENT_SECRET = (your client secret key here)
 $ rails s -p 3001
+$ open http://localhost:8080
 ```
 
 ####To run tests:
