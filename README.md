@@ -12,6 +12,7 @@ Open terminal:
 $ git clone https://github.com/eripheebs/eco-nnect.git
 $ cd eco-nnect
 $ cd react_frontend
+$ npm install
 $ npm run devserve
 ```
 In another terminal tab:
