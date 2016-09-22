@@ -1,9 +1,9 @@
-class AddFilesToFiles < ActiveRecord::Migration
+class AddFilesToDocs < ActiveRecord::Migration
   def self.up
-    add_attachment :files, :file
+    add_attachment :docs, :file
   end
 
   def self.down
-    remove_attachment :files, :file
+    remove_attachment :docs, :file
   end
 end
