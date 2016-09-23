@@ -48,10 +48,9 @@ var NewResearchForm = React.createClass({
       url: url,
       data: {
         'research': {
-          'title': this.state.title,
-          'industry': this.state.industry,
-          'ngo': this.state.ngo,
-          'description': this.state.description
+          'topic': this.state.topic,
+          'description': this.state.description,
+          'docs': this.state.docs
         }
       },
       success: successFunction,
@@ -72,7 +71,7 @@ var NewResearchForm = React.createClass({
       topic: '',
       description: '',
       messages: '',
-      files: [],
+      docs: [],
       alert: ''
     };
   },
@@ -92,7 +91,7 @@ var NewResearchForm = React.createClass({
       var reader = new FileReader();
 
       reader.onload = function(upload) {
-        self.state.files.push(upload.target.result);
+        self.state.docs.push({'doc': {'file': upload.target.result}});
         console.log("file" + (i+1) + "uploaded");
       };
 

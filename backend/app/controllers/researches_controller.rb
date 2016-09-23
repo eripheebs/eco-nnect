@@ -8,6 +8,12 @@ class ResearchesController < ApplicationController
   def create
     user = current_user
     research = user.researches.new(research_params)
+    docs = params[:docs]
+    if !!docs
+      docs.each do |file|
+        research.docs.new(doc_params)
+      end
+    end
     render json:research if research.save
   end
 
@@ -34,7 +40,10 @@ class ResearchesController < ApplicationController
   private
 
   def research_params
-    params.require(:research).permit(:topic, :description, :files)
+    params.require(:research).permit(:topic, :description)
   end
 
+  def doc_params
+    params.require(:doc).permit(:file)
+  end
 end

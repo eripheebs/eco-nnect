@@ -118,6 +118,7 @@ var Research = React.createClass({
       <div className="larger-investment">
         <span className="investment-title">{this.props.topic}</span><br />
         <span className="investment-description">{this.props.description}</span>
+        <span>{this.props.files}</span>
       </div>
     )
   }
